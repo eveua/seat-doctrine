@@ -1,5 +1,5 @@
 {
-    "name": "greyzmeem/seat-doctrine",
+    "name": "eveua/seat-doctrine",
     "type": "seat-plugin",
     "license": "MIT",
     "authors": [
@@ -8,7 +8,8 @@
             "email": "am@zula.pro"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "GreyZmeem\\Seat\\Doctrine\\": "src/"
