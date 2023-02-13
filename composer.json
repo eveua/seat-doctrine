@@ -1,0 +1,29 @@
+{
+    "name": "greyzmeem/seat-doctrine",
+    "type": "seat-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Maslov",
+            "email": "am@zula.pro"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "GreyZmeem\\Seat\\Doctrine\\": "src/"
+        }
+    },
+     "extra": {
+        "laravel": {
+            "providers": [
+                "GreyZmeem\\Seat\\Doctrine\\DoctrineServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "eveseat/services": "^4.1",
+        "eveseat/eveapi": "^4.0",
+        "eveseat/web": "^4.0"
+    }
+}
