@@ -83,6 +83,8 @@
     )
 @endsection
 
+@include('doctrine::includes.markdownEditor', ['selector' => '#doctrine-form-description'])
+
 @push('javascript')
     <script>
         $(document).ready(function () {

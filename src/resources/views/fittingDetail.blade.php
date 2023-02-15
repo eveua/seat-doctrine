@@ -39,7 +39,11 @@
             </div>
 
             @if($fitting['description'])
-                <div class="alert alert-light fitting__description" role="alert">
+                <div
+                    class="alert alert-light fitting__description"
+                    id="fitting-description"
+                    role="alert"
+                >
                     {!! nl2br(e($fitting['description'])) !!}
                 </div>
             @endif
@@ -66,6 +70,14 @@
         )
     @endcan
 @endsection
+
+@include(
+    'doctrine::includes.markdownViewer',
+    [
+        'selector' => '#fitting-description',
+        'markdown' => $fitting['description'],
+    ]
+)
 
 @push('javascript')
     <script>

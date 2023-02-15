@@ -54,6 +54,7 @@
                         class="form-control"
                         name="description"
                         rows="5"
+                        id="fitting-form-description"
                         style="width: 100%"
                     >{{ $fitting['description'] }}</textarea>
                 </div>
@@ -80,6 +81,8 @@
         ]
     )
 @endsection
+
+@include('doctrine::includes.markdownEditor', ['selector' => '#fitting-form-description'])
 
 @push('javascript')
     <script>

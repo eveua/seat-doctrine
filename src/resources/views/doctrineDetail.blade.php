@@ -30,7 +30,7 @@
         </div>
         <div class="card-body">
             @if($doctrine['description'])
-                <div class="alert alert-light" role="alert">
+                <div class="alert alert-light" id="doctrine-description" role="alert">
                     {!! nl2br(e($doctrine['description'])) !!}
                 </div>
             @endif
@@ -134,6 +134,14 @@
         </div>
     </div>
 @endsection
+
+@include(
+    'doctrine::includes.markdownViewer',
+    [
+        'selector' => '#doctrine-description',
+        'markdown' => $doctrine['description'],
+    ]
+)
 
 @push('javascript')
     <script>
