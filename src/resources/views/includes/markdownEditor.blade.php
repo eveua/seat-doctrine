@@ -12,7 +12,7 @@
             new SimpleMDE({
                 autofocus: true,
                 element: document.querySelector('{{ $selector }}'),
-                hideIcons: ['side-by-side'],
+                hideIcons: ['side-by-side', 'fullscreen'],
                 status: false,
             });
         })
