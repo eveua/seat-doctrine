@@ -59,6 +59,17 @@
                     >{{ $fitting['description'] }}</textarea>
                 </div>
 
+                <div class="form-group">
+                    <label for="doctrine-add-name">EFT</label>
+                    <textarea
+                            class="form-control"
+                            name="eft"
+                            rows="5"
+                            id="fitting-form-eft"
+                            style="width: 100%"
+                    >{{ $fitting['fit']['eft'] }}</textarea>
+                </div>
+
                 <div class="btn-group" role="group">
                     <a
                         class="btn btn-default"

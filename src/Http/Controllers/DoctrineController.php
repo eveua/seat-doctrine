@@ -77,6 +77,7 @@ class FittingUpdateRequestValidation extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'nullable|string',
+            'eft' => 'required|string',
         ];
     }
 }
@@ -259,8 +260,17 @@ class DoctrineController extends Controller
      */
     public function fittingUpdate(FittingUpdateRequestValidation $request, $id) {
         $instance = Fitting::findOrFail($id);
+
+        $result = $this->parseFitting($request->eft);
+        if (array_key_exists('error', $result)) {
+            return redirect()->back()->with('error', $result['error']);
+        }
+
         $instance->name = $request->name;
         $instance->description = $request->description ?? '';
+        $instance->ship = $result['ship'];
+        $instance->shipID = $result['shipID'];
+        $instance->fit = $result['fit'];
         $instance->save();
         return redirect()->route('doctrine.fittingDetail', ['id' => $instance->id]);
     }
