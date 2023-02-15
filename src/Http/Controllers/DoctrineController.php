@@ -43,7 +43,7 @@ class DoctrineUpdateRequestValidation extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'nullable|string',
-            'fittings' => 'required|array',
+            'fittings' => 'nullable|array',
             'fittings.*' => 'integer',
         ];
     }
@@ -163,7 +163,9 @@ class DoctrineController extends Controller
         $instance->description = $request->description ?? '';
         $instance->save();
         $instance->fittings()->detach();
-        $instance->fittings()->attach($request->fittings);
+        if (!is_null($request->fittings)) {
+            $instance->fittings()->attach($request->fittings);
+        }
         return redirect()->route('doctrine.doctrineDetail', ['id' => $instance->id]);
     }
 
