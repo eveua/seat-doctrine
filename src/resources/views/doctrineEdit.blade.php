@@ -94,7 +94,7 @@
 
             const fittingsSelect = $('#doctrine-form-fittings');
             fittingsSelect.select2({
-                allowClear: true,
+                closeOnSelect: false,
                 ajax: {
                     url: '{{ route('doctrine.fittingList') }}?format=json',
                     dataType: 'json',
